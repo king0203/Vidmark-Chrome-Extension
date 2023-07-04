@@ -1,0 +1,36 @@
+The manifest.json file is the starting point for creating an extension. 
+It specifies the extension's platform version and other default loading information. 
+Every extension, regardless of the browser (e.g., Safari, Mozilla, or Chromium-based), 
+requires a manifest.json file.
+
+The manifest.json file is crucial for the extension and must be present for it to work. 
+It contains important details such as the extension's name, version number, and description. 
+The version number is displayed when the extension is loaded, and the name is the name 
+of the extension when loaded.
+
+Permissions are another important aspect of the manifest.json file. Different Chrome 
+extensions may require different permissions. In this particular extension, two 
+permissions are requested: chrome.storage API for storing data in the user's browser 
+and chrome.tabs API for accessing the browser's tab system. The chrome.tabs API helps 
+identify the current browser tab and retrieve the URL, specifically for YouTube video 
+pages in this extension.
+
+Host permissions allow sending cross-origin requests to specific host names. In this 
+extension, the host pattern is set to match YouTube pages since it only deals with YouTube.
+
+Service workers are significant changes between extension versions (v2 and v3). They 
+are JavaScript files running separately from the main browser thread. Although they 
+don't have direct access to webpage content, service workers can communicate with 
+the extension using the extension's messaging system, which will be used in the 
+bookmarking extension.
+
+Content scripts are files that run in the context of the webpages the extension 
+is active on. They are used to manipulate the DOM of the webpage. The content script 
+file is specified as content_script.js.
+
+The manifest.json file also references the default popup UI file, popup.html. In 
+this case, the associated interactivity file is popup.js.
+
+
+
+
